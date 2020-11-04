@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     const { isLoading } = this.state; //ES6의 적용
     return <div>{isLoading ? "Loading" : "We are ready"}</div>;
-    // isLoading 라면? "Loading"을 출력 아니면 "We are ready" 출력하라.
+    // isLoading 라면? "Loading"을 출력, 아니면 "We are ready" 출력하라.
   }
 }
 
