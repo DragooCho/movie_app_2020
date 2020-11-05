@@ -1,19 +1,23 @@
 import React from "react";
+import axios from "axios";
 
 class App extends React.Component {
   state = {
     isLoading: true,
     movie: [],
   };
+  getMovies = async () => {
+    const movies = await axios.get(
+      "https://yts-proxy.nomadcoders1.now.sh/list_movies.json"
+    );
+  };
+
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({ isLoading: false });
-    }, 6000);
+    this.getMovies();
   }
   render() {
     const { isLoading } = this.state; //ES6의 적용
     return <div>{isLoading ? "Loading" : "We are ready"}</div>;
-    // isLoading 라면? "Loading"을 출력, 아니면 "We are ready" 출력하라.
   }
 }
 
